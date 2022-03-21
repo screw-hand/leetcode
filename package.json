@@ -11,6 +11,13 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "ts-server": "ts-server"
+    "ts-server": "ts-server",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1"
   }
 }
