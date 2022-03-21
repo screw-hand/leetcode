@@ -1,0 +1,16 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:screw-hand/leetcode.git",
+  "author": "screw-hand <screwhand0@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "ts-server": "ts-server"
+  }
+}
