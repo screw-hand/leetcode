@@ -1,6 +1,8 @@
 class HashTable {
   toStrFn: (str: unknown) => string;
-  table: {};
+  table: {
+    [key: number]: unknown;
+  };
 
   constructor(toStrFn = (str: unknown) => (str += "")) {
     this.toStrFn = toStrFn;
