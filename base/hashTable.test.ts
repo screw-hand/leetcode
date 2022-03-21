@@ -2,10 +2,6 @@ import HashTable from "./hashTable";
 
 const hash = new HashTable();
 
-console.log(hash.hashCode("Gandalf") + " - Gandalf");
-console.log(hash.hashCode("John") + " - John");
-console.log(hash.hashCode("Tyrion") + " - Tyrion");
-
 test("HashTable init", () => {
   expect(hash.toStrFn).toBeTruthy();
   expect(hash.table).toBeTruthy();
@@ -15,6 +11,8 @@ test("HashTable put", () => {
   expect(hash.put("Gandalf", "gandalf@email.com")).toBeTruthy();
   expect(hash.put("John", "johnsnow@email.com")).toBeTruthy();
   expect(hash.put("Tyrion", "tyrion@email.com")).toBeTruthy();
+
+  console.log(hash.table)
 
   expect(hash.hashCode("Gandalf") + " - Gandalf").toBe("19 - Gandalf");
   expect(hash.hashCode("John") + " - John").toBe("29 - John");
