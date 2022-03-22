@@ -9,7 +9,7 @@ test("test case 1", () => {
 });
 
 test("test case 2", () => {
-  expect(b).toEqual([0, 2]);
+  expect(b).toEqual([1, 2]);
 });
 
 test("test case 3", () => {

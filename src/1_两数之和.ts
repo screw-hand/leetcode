@@ -48,29 +48,6 @@ function twoSum(nums: number[], target: number): number[] {
 
 // @lc code=start
 function twoSum(nums: number[], target: number): number[] {
-  // 双指针(对撞指针)
-  // 两边指针的值相加与target比较
-  // 根据上一步判断小于/大于，移动左/右指针
-  // 双指针的值相加则返回左右指针索引
-  const arr = nums.sort((a, b) => a - b);
-  let left = 0;
-  let right = arr.length - 1;
-  while (left < right) {
-    const sum = arr[left] + arr[right];
-    console.log({
-      sum,
-      left,
-      right,
-      target
-    });
-    if (sum < target) {
-      left++;
-    } else if (sum > target) {
-      right--;
-    } else if (sum === target) {
-      return [left, right];
-    }
-  }
   return [];
 }
 // @lc code=end
