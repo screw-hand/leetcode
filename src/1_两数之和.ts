@@ -6,7 +6,7 @@
 
 /*
 // 暴力枚举法 
-// 时间 O(n²)
+// 时间 O(N²)
 // 空间 O(1)
 function twoSum(nums: number[], target: number): number[] {
   for (let i = 0, len = nums.length; i < len; i++) {
@@ -24,8 +24,8 @@ function twoSum(nums: number[], target: number): number[] {
 
 /*
 // hashMap
-// 时间 O(log(n))
-// 空间 O(n)
+// 时间 O(N)
+// 空间 O(N)
 function twoSum(nums: number[], target: number): number[] {
   // 使用hashMap,收集已遍历的的不匹配值
   // key为具体值，value为索引（题目要求返回索引）
