@@ -5,7 +5,9 @@
  */
 
 /*
-// 暴力枚举法 O(n²)
+// 暴力枚举法 
+// 时间 O(n²)
+// 空间 O(1)
 function twoSum(nums: number[], target: number): number[] {
   for (let i = 0, len = nums.length; i < len; i++) {
     for (let j = i + 1; j < len; j++) {
@@ -20,7 +22,10 @@ function twoSum(nums: number[], target: number): number[] {
 }
 */
 
-// @lc code=start
+/*
+// hashMap
+// 时间 O(log(n))
+// 空间 O(n)
 function twoSum(nums: number[], target: number): number[] {
   // 使用hashMap,收集已遍历的的不匹配值
   // key为具体值，value为索引（题目要求返回索引）
@@ -35,6 +40,35 @@ function twoSum(nums: number[], target: number): number[] {
       return [i, hashMap[step]];
     } else {
       hashMap[val] = i;
+    }
+  }
+  return [];
+}
+*/
+
+// @lc code=start
+function twoSum(nums: number[], target: number): number[] {
+  // 双指针(对撞指针)
+  // 两边指针的值相加与target比较
+  // 根据上一步判断小于/大于，移动左/右指针
+  // 双指针的值相加则返回左右指针索引
+  const arr = nums.sort((a, b) => a - b);
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+    console.log({
+      sum,
+      left,
+      right,
+      target
+    });
+    if (sum < target) {
+      left++;
+    } else if (sum > target) {
+      right--;
+    } else if (sum === target) {
+      return [left, right];
     }
   }
   return [];
