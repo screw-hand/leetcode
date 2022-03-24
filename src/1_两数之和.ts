@@ -50,20 +50,24 @@ function twoSum(nums: number[], target: number): number[] {
 // O(N) O(N)
 function twoSum(nums: number[], target: number): number[] {
   const len = nums.length;
-  const index: { [key: number]: number } = {};
-  for (let i = 0; i < len; i++) {
-    index[nums[i]] = i;
-  }
-  for (let i = 0; i < len; i++) {
-    const other = target - nums[i];
-    if (index[other] !== undefined && index[other] !== i) {
-      return [i, index[other]];
+  const arr = [...nums].sort((a, b) => a - b);
+  let l = 0,
+    r = len - 1;
+  while (l < r) {
+    const sum = arr[l] + arr[r];
+    if (sum === target) {
+      const res = [nums.indexOf(arr[l]), nums.lastIndexOf(arr[r])].sort(
+        (a, b) => a - b
+      );
+      return res;
+    } else if (sum < target) {
+      l++;
+    } else if (sum > target) {
+      r--;
     }
   }
   return [];
 }
 // @lc code=end
 
-twoSum([3, 1, 3], 6);
-
-// export default twoSum;
+export default twoSum;
