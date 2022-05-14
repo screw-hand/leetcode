@@ -12,7 +12,7 @@ class NumMatrix {
     const m = matrix.length;
     const n = matrix[0].length;
     if (m === 0 || n === 0) return;
-    // 构建前缀矩阵
+
     this.preSum = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
 
     for (let i = 1; i <= m; i++) {
@@ -33,9 +33,13 @@ class NumMatrix {
 
   sumRegion(row1: number, col1: number, row2: number, col2: number): number {
     return (
+      // 0,0 row2,col2 最大的那块
       this.preSum[row2 + 1][col2 + 1] -
+      // 0,0, preRow (col要达到col2+1,row最小)
       this.preSum[row1][col2 + 1] -
+      // 0,0, preCol (row要达到row2+1,col最小)
       this.preSum[row2 + 1][col1] +
+      // 0,0, row1,col1（因为减掉的preRow，preCol，都有两个0,0, row1,col1，所以要加回来一次）
       this.preSum[row1][col1]
     );
   }
