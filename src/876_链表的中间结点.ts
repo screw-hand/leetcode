@@ -39,3 +39,4 @@ function middleNode(head: ListNode | null): ListNode | null {
 };
 // @lc code=end
 
+export default ListNode;
