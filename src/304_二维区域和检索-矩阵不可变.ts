@@ -69,3 +69,5 @@ console.log({
   b: b, // === 11,
   c: c, // === 12,
 });
+
+export default NumMatrix;
