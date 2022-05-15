@@ -27,12 +27,14 @@ function subarraySum(nums: number[], k: number): number {
 }
 // @lc code=end
 
-const a = subarraySum([1,1,1],2)
-const b = subarraySum([1,2,3],3)
-const c = subarraySum([-1, -1, 1], 0);
+// const a = subarraySum([1, 1, 1], 2);
+// const b = subarraySum([1, 2, 3], 3);
+// const c = subarraySum([-1, -1, 1], 0);
+const d = subarraySum([3, 5, 2, -2, 4, 1], 5);
 
 console.log({
-  a, // 2
-  b, // 2
-  c, // 1
+  // a, // 2
+  // b, // 2
+  // c, // 1
+  d, // 4
 });
