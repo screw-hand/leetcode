@@ -7,36 +7,32 @@
 // @lc code=start
 function subarraySum(nums: number[], k: number): number {
   const n = nums.length;
-  let preSum: number[] = [];
-  preSum[0] = 0;
-  let res = 0;
+  // map 前缀和:前缀和出现次数
+  const preSum = new Map<number, number>();
+  preSum.set(0, 1);
+  let res = 0,
+    sum0ToI = 0;
 
   for (let i = 0; i < n; i++) {
-    preSum[i + 1] = preSum[i] + nums[i];
-  }
-
-  // console.log(preSum);
-
-  // 循环preSum,从1开始，达到数组长度为最后一轮循环
-  for (let i = 1; i <= n; i++) {
-    // 循环数组,从0开始，小于i，
-    for (let j = 0; j < i; j++) {
-      if (preSum[i] - preSum[j] === k) {
-        res++;
-      }
+    sum0ToI += nums[i];
+    // 前缀和nums[0...j]
+    const sum0ToJ = sum0ToI - k;
+    if (preSum.has(sum0ToJ)) {
+      res += preSum.get(sum0ToJ) || 0;
     }
+    preSum.set(sum0ToI, (preSum.get(sum0ToI) || 0) + 1);
   }
 
   return res;
 }
 // @lc code=end
 
-// const a = subarraySum([1,1,1],2)
-// const b = subarraySum([1,2,3],3)
+const a = subarraySum([1,1,1],2)
+const b = subarraySum([1,2,3],3)
 const c = subarraySum([-1, -1, 1], 0);
 
 console.log({
-  // a, // 2
-  // b, // 2
-  c, // == 1
+  a, // 2
+  b, // 2
+  c, // 1
 });
