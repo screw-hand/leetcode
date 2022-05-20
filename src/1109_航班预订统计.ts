@@ -48,3 +48,5 @@ function corpFlightBookings(bookings: number[][], n: number): number[] {
   return df.result();
 }
 // @lc code=end
+
+export { Difference, corpFlightBookings };
