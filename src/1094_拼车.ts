@@ -50,10 +50,6 @@ function carPooling(trips: number[][], capacity: number): boolean {
     difference.increment(i, j, val);
   }
   const result: number[] = difference.result();
-  console.log({
-    diff: difference.diff,
-    result
-  })
   return result.every(x => capacity >= x);
 };
 // @lc code=end
