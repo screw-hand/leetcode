@@ -5,6 +5,7 @@
   "repository": "git@github.com:screw-hand/leetcode.git",
   "author": "screw-hand <screwhand0@gmail.com>",
   "license": "MIT",
+  "type": "commonjs",
   "dependencies": {
     "ts-node": "^10.7.0",
     "typescript": "^4.6.2"

@@ -13,3 +13,6 @@ base - 基础实现
 lear - 练习
 src - 刷题
 ```
+
+code run => src/*.ts
+debug ts-node => **/**.ts

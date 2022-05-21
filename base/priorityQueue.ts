@@ -5,8 +5,8 @@
 
 /* 二叉堆：存储在数组里的完全二叉树 */
 class MaxPQ<T = number> {
-  public pq: Array<T> = [];
-  public N: number = 0;
+  private pq: Array<T> = [];
+  private N: number = 0;
   constructor(cap: number) {
     this.pq = new Array(cap + 1);
   }
@@ -17,23 +17,54 @@ class MaxPQ<T = number> {
   }
 
   /* 插入元素e */
-  public insert(e: T) {}
+  public insert(e: T) {
+    this.N++;
+    this.pq[this.N] = e;
+    this.swim(this.N);
+  }
 
   /* 删除并返回当前队列中最大元素 */
-  public delMax() {}
+  public delMax() {
+    this.exch(1, this.N);
+    this.pq.pop();
+    this.N--;
+    this.sink(1);
+    return this.pq[1];
+  }
 
   /* 上浮第k个元素，以维护最大堆性质 */
-  private swim(k: number) {}
+  private swim(k: number) {
+    while (k > 1 && this.less(this.parent(k), k)) {
+      this.exch(this.parent(k), k);
+      k = this.parent(k);
+    }
+  }
 
   /* 下浮第k个元素，以维护最大堆性质 */
-  private sink(k: number) {}
+  private sink(k: number) {
+    while (this.left(k) <= this.N) {
+      const older = this.less(this.left(k), this.right(k))
+        ? this.right(k)
+        : this.left(k);
+
+      if (this.less(older, k)) {
+        break;
+      }
+      this.exch(older, k);
+      k = older;
+    }
+  }
 
   /* 交换数组的两个元素 */
-  private exch(i: number, j: number) {}
+  private exch(i: number, j: number) {
+    const temp = this.pq[i];
+    this.pq[i] = this.pq[j];
+    this.pq[j] = temp;
+  }
 
   /* 比较索引i的值是否比索引j的值小 */
   private less(i: number, j: number): boolean {
-    return false;
+    return this.pq[i] < this.pq[j];
   }
 
   /* 父节点索引 */
@@ -43,12 +74,22 @@ class MaxPQ<T = number> {
 
   /* 左孩子索引 */
   left(root: number): number {
-    return Math.floor(root * 2);
+    return root * 2;
   }
 
   /* 右孩子索引 */
   right(root: number): number {
     return root * 2 + 1;
+  }
+
+  getPq() {
+    const pq = [...this.pq];
+    pq.shift();
+    return pq;
+  }
+
+  getN() {
+    return this.N;
   }
 }
 
