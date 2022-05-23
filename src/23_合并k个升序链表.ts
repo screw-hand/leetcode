@@ -4,6 +4,8 @@
  * [23] 合并K个升序链表
  */
 
+import { ArrToListNode } from "../base/ArrToListNode";
+
 class ListNode {
   val: number;
   next: ListNode | null;
@@ -50,11 +52,12 @@ class MinPQ<T = number> {
 
   /* 删除并返回当前队列中最小元素 */
   public delMin() {
+    const min = this.pq[1];
     this.exch(1, this.N);
     this.pq.pop();
     this.N--;
     this.sink(1);
-    return this.min();
+    return min;
   }
 
   /* 上浮第k个元素 */
@@ -89,6 +92,16 @@ class MinPQ<T = number> {
 
   /* 比较索引i的值是否比索引j的值大 */
   private moreThen(i: number, j: number): boolean {
+    if (!this.pq[i]) {
+      return false;
+    } else if (!this.pq[j]) {
+      return true;
+    }
+    // if (this.pq[i] === null && this.pq[j]){
+    //   return true;
+    // } else if (this.pq[j] === null) {
+    //   return false;
+    // }
     return this.sort(this.pq[i], this.pq[j]);
   }
 
@@ -119,7 +132,7 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
   const len = lists.length;
   if (len === 0) return null;
   let dummy = new ListNode(-1);
-  let p = dummy;
+  let p: ListNode | null = dummy;
   let pq = new MinPQ<ListNode>(len, (a, b) => a.val > b.val);
   for (let i = 0; i < len; i++) {
     const head = lists[i];
@@ -127,17 +140,64 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
       pq.insert(head);
     }
   }
-  while (pq.getPq().length) {
-    const node: ListNode = pq.min();
-    pq.delMin();
-    p.next = node;
-    if (node.next !== null) {
+  console.log(pq);
+  while (pq.getPq().length > 0) {
+    const node = pq.delMin();
+    if (p && p.next) {
+      p.next = node || null;
+    }
+    if (node && node.next !== null) {
       pq.insert(node.next);
     }
-    p = p.next;
+    /*  */
+    // if (p && p.next) {
+    //   p = p.next;
+    // } else {
+    //   p = null;
+    // }
+    /*  */
+
+    // const node = pq.delMin();
+    // if (p && p.next) {
+    //   p.next = node;
+    // }
+    // if (node && node.next !== null) {
+    //   pq.insert(node.next);
+    // }
+    // p = p?.next || null;
+    // console.log({
+    //   p,
+    //   pq: pq.getPq(),
+    //   node,
+    // });
   }
-  return dummy.next;
+  return dummy.next || null;
 }
 // @lc code=end
+
+const lists1 = [
+  [1, 4, 5],
+  [1, 3, 4],
+  [2, 6],
+];
+const lists2 = [[]];
+const lists3 = [[], []];
+const lists4 = [[], [1]];
+const list1 = lists1.map((x) => new ArrToListNode(x).listNode);
+const list2 = lists2.map((x) => new ArrToListNode(x).listNode);
+const list3 = lists3.map((x) => new ArrToListNode(x).listNode);
+const list4 = lists4.map((x) => new ArrToListNode(x).listNode);
+const result1 = mergeKLists(list1);
+const result2 = mergeKLists(list2);
+const result3 = mergeKLists(list3);
+const result4 = mergeKLists(list4);
+
+console.log(
+  result1,
+  result2,
+  result3,
+  result4,
+)
+
 
 export { ListNode, mergeKLists };

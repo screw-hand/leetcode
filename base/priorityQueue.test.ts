@@ -13,7 +13,7 @@ test(`MaxMQ init [${nums}]`, () => {
   expect(maxMQ.getPq()).toEqual(["Z", "T", "S", "P", "O", "N", "R", "A"]);
   expect(maxMQ.getN()).toEqual(8);
 
-  expect(maxMQ.delMax()).toEqual("T");
+  expect(maxMQ.delMax()).toEqual("Z");
 
   expect(maxMQ.getPq()).toEqual(["T", "P", "S", "A", "O", "N", "R"]);
 

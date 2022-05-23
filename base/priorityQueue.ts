@@ -25,11 +25,12 @@ class MaxPQ<T = number> {
 
   /* 删除并返回当前队列中最大元素 */
   public delMax() {
+    const max = this.pq[1];
     this.exch(1, this.N);
     this.pq.pop();
     this.N--;
     this.sink(1);
-    return this.max();
+    return max;
   }
 
   /* 上浮第k个元素，以维护最大堆性质 */
