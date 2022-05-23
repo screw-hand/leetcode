@@ -2,5 +2,6 @@
   "cSpell.words": [
     "Loiane",
     "nums"
-  ]
+  ],
+  "jest.jestCommandLine": "cmd"
 }
