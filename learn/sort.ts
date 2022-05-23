@@ -1,4 +1,4 @@
-const arr1 = [
+const arr1: Array<number[]> = [
   [1, 2, 3, 4],
   [5, 6, 7],
   [8, 9, 10],
@@ -24,7 +24,7 @@ const arr1 = [
 
 let x = 0,
   y = 0;
-let arr2 = [];
+let arr2: number[] = [];
 while (arr1[x][y]) {
   console.log({ x, y });
   arr2.push(arr1[x][y]);
@@ -35,3 +35,5 @@ while (arr1[x][y]) {
   }
 }
 console.log(arr2);
+
+export {}
