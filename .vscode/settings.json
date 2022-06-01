@@ -3,5 +3,25 @@
     "Loiane",
     "nums"
   ],
-  "jest.jestCommandLine": "cmd"
+  "jest.jestCommandLine": "cmd",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ffb64c",
+    "activityBar.activeBorder": "#00804c",
+    "activityBar.background": "#ffb64c",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#00804c",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "sash.hoverBorder": "#ffb64c",
+    "statusBar.background": "#ffa119",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#e58700",
+    "statusBarItem.remoteBackground": "#ffa119",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#ffa119",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#ffa11999",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#ffa119"
 }
