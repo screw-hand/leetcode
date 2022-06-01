@@ -13,3 +13,16 @@ base - 基础实现
 lear - 练习
 src - 刷题
 ```
+
+```
+# GUI
+run code    不建议使用
+vscode jest 可视化jest
+# CLI
+yarn ts-node
+yarn tsc       编译ts
+yarn ts-server 实时编译ts
+yarn test       单测，指定路径/文件(`.test.ts`)时使用。
+```
+
+`.ts`、`.test.ts`均使用esm
