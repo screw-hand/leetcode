@@ -4,6 +4,11 @@
     "nums"
   ],
   "jest.jestCommandLine": "cmd",
+  "jest.autoRun": {
+    "watch": false,
+    // "onSave": "false",
+    // "onStartUp": [ "all-tests"]
+  },
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ffb64c",
     "activityBar.activeBorder": "#00804c",

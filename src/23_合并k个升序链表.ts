@@ -3,9 +3,6 @@
  *
  * [23] 合并K个升序链表
  */
-
-import { ArrToListNode } from "../base/ArrToListNode";
-
 class ListNode {
   val: number;
   next: ListNode | null;
@@ -34,7 +31,6 @@ class MinPQ<T = number> {
   private sort: (a: T, b: T) => boolean;
 
   constructor(cap: number, sort: (a: T, b: T) => boolean) {
-    this.pq = new Array(cap + 1);
     this.sort = sort;
   }
 
@@ -72,7 +68,7 @@ class MinPQ<T = number> {
   private sink(k: number) {
     while (this.left(k) <= this.N) {
       let older = this.left(k);
-      if (this.moreThen(this.right(k), this.left(k))) {
+      if (this.moreThen(this.left(k), this.right(k))) {
         older = this.right(k);
       }
       if (this.moreThen(older, k)) {
@@ -131,50 +127,32 @@ class MinPQ<T = number> {
 function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
   const len = lists.length;
   if (len === 0) return null;
-  let dummy = new ListNode(-1);
-  let p: ListNode | null = dummy;
-  let pq = new MinPQ<ListNode>(len, (a, b) => a.val > b.val);
+  let dummy = new ListNode(-1); // 带前置空节点的链表
+  let p: ListNode = dummy; // 指针
+  let pq = new MinPQ<ListNode>(len, (a, b) => a.val > b.val); // 二叉堆队列
   for (let i = 0; i < len; i++) {
     const head = lists[i];
     if (head !== null) {
       pq.insert(head);
     }
   }
-  console.log(pq);
+
   while (pq.getPq().length > 0) {
+    // 取出二叉堆最小值的链表放入p的下一个指向
     const node = pq.delMin();
-    if (p && p.next) {
-      p.next = node || null;
-    }
-    if (node && node.next !== null) {
+    p.next = node;
+    // 最小值的下一指向有值，加入二叉堆
+    if (node.next !== null) {
       pq.insert(node.next);
     }
-    /*  */
-    // if (p && p.next) {
-    //   p = p.next;
-    // } else {
-    //   p = null;
-    // }
-    /*  */
-
-    // const node = pq.delMin();
-    // if (p && p.next) {
-    //   p.next = node;
-    // }
-    // if (node && node.next !== null) {
-    //   pq.insert(node.next);
-    // }
-    // p = p?.next || null;
-    // console.log({
-    //   p,
-    //   pq: pq.getPq(),
-    //   node,
-    // });
+    p = p.next;
   }
   return dummy.next || null;
 }
 // @lc code=end
 
+
+/**
 const lists1 = [
   [1, 4, 5],
   [1, 3, 4],
@@ -198,6 +176,7 @@ console.log(
   result3,
   result4,
 )
+*/
 
 
 export { ListNode, mergeKLists };

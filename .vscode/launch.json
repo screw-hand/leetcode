@@ -19,26 +19,26 @@
       "protocol": "inspector",
       "internalConsoleOptions": "openOnSessionStart"
     },
-    {
-      "type": "node",
-      "name": "vscode-jest-tests.v2-1653326652941",
-      "request": "launch",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": [
-        "--runInBand",
-        "--watchAll=false",
-        "--testNamePattern",
-        "${jest.testNamePattern}",
-        "--runTestsByPath",
-        "${jest.testFile}"
-      ],
-      "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true,
-      "windows": {
-        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
-      }
-    }
+    // {
+    //   "type": "node",
+    //   "name": "vscode-jest-tests.v2-1653326652941",
+    //   "request": "launch",
+    //   "program": "${workspaceFolder}/node_modules/.bin/jest",
+    //   "args": [
+    //     "--runInBand",
+    //     "--watchAll=false",
+    //     "--testNamePattern",
+    //     "${jest.testNamePattern}",
+    //     "--runTestsByPath",
+    //     "${jest.testFile}"
+    //   ],
+    //   "cwd": "${workspaceFolder}",
+    //   "console": "integratedTerminal",
+    //   "internalConsoleOptions": "neverOpen",
+    //   "disableOptimisticBPs": true,
+    //   "windows": {
+    //     "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+    //   }
+    // }
   ]
 }
