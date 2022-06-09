@@ -3,7 +3,7 @@
     "Loiane",
     "nums"
   ],
-  "jest.jestCommandLine": "cmd",
+  "jest.jestCommandLine": "yarn test",
   "jest.autoRun": {
     "watch": false,
     // "onSave": "false",
