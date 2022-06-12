@@ -1,3 +1,7 @@
+/**
+ * 数组转换成链表
+ */
+
 class ListNode {
   val: number;
   next: ListNode | null;
