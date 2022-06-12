@@ -68,7 +68,7 @@ class MinPQ<T = number> {
   private sink(k: number) {
     while (this.left(k) <= this.N) {
       let older = this.left(k);
-      if (this.moreThen(this.left(k), this.right(k))) {
+      if (this.right(k) <= this.N && this.moreThen(older, this.right(k))) {
         older = this.right(k);
       }
       if (this.moreThen(older, k)) {
@@ -150,33 +150,5 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
   return dummy.next || null;
 }
 // @lc code=end
-
-
-/**
-const lists1 = [
-  [1, 4, 5],
-  [1, 3, 4],
-  [2, 6],
-];
-const lists2 = [[]];
-const lists3 = [[], []];
-const lists4 = [[], [1]];
-const list1 = lists1.map((x) => new ArrToListNode(x).listNode);
-const list2 = lists2.map((x) => new ArrToListNode(x).listNode);
-const list3 = lists3.map((x) => new ArrToListNode(x).listNode);
-const list4 = lists4.map((x) => new ArrToListNode(x).listNode);
-const result1 = mergeKLists(list1);
-const result2 = mergeKLists(list2);
-const result3 = mergeKLists(list3);
-const result4 = mergeKLists(list4);
-
-console.log(
-  result1,
-  result2,
-  result3,
-  result4,
-)
-*/
-
 
 export { ListNode, mergeKLists };

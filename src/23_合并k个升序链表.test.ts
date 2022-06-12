@@ -24,29 +24,29 @@ const lists5 = [[-8,-7,-7,-5,1,1,3,4],[-2],[-10,-10,-7,0,1,3],[2]];
 
 const result5: Array<number> = [-10,-10,-8,-7,-7,-7,-5,-2,0,1,1,1,2,3,3,4];
 
-// test(`mergeKLists [${lists1}]`, () => {
-//   const lists = lists1.map((x) => new ArrToListNode(x).listNode);
-//   const result = mergeKLists(lists);
-//   expect(result).toEqual(new ArrToListNode(result1).listNode);
-// });
+test(`mergeKLists [${lists1}]`, () => {
+  const lists = lists1.map((x) => new ArrToListNode(x).listNode);
+  const result = mergeKLists(lists);
+  expect(result).toEqual(new ArrToListNode(result1).listNode);
+});
 
-// test(`mergeKLists [${lists2}]`, () => {
-//   const lists = lists2.map(x => new ArrToListNode(x).listNode)
-//   const result = mergeKLists(lists)
-//   expect(result).toEqual(new ArrToListNode(result2).listNode)
-// })
+test(`mergeKLists [${lists2}]`, () => {
+  const lists = lists2.map(x => new ArrToListNode(x).listNode)
+  const result = mergeKLists(lists)
+  expect(result).toEqual(new ArrToListNode(result2).listNode)
+})
 
-// test(`mergeKLists [${lists3}]`, () => {
-//   const lists = lists3.map(x => new ArrToListNode(x).listNode)
-//   const result = mergeKLists(lists)
-//   expect(result).toEqual(new ArrToListNode(result3).listNode)
-// })
+test(`mergeKLists [${lists3}]`, () => {
+  const lists = lists3.map(x => new ArrToListNode(x).listNode)
+  const result = mergeKLists(lists)
+  expect(result).toEqual(new ArrToListNode(result3).listNode)
+})
 
-// test(`mergeKLists [${lists4}]`, () => {
-//   const lists = lists4.map(x => new ArrToListNode(x).listNode)
-//   const result = mergeKLists(lists)
-//   expect(result).toEqual(new ArrToListNode(result4).listNode)
-// })
+test(`mergeKLists [${lists4}]`, () => {
+  const lists = lists4.map(x => new ArrToListNode(x).listNode)
+  const result = mergeKLists(lists)
+  expect(result).toEqual(new ArrToListNode(result4).listNode)
+})
 
 test(`mergeKLists [${lists5}]`, () => {
   const lists = lists5.map(x => new ArrToListNode(x).listNode)
