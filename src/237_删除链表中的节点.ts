@@ -38,4 +38,4 @@ function deleteNode(root: ListNode | null): void {
 };
 // @lc code=end
 
-export default ListNode;
+export default deleteNode;
