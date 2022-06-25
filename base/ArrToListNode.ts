@@ -73,7 +73,7 @@ class ArrToListNode {
   }
 
   // 往指定位置插入节点
-  inset(val: number | ListNode | Array<t>, index = this.count) {
+  insert(val: number | ListNode | Array<t>, index = this.count) {
     let dempList: ListNode = new ListNode(
       -1,
       this.listNode
