@@ -2,6 +2,8 @@
  * 数组转换成链表
  */
 
+type t = number;
+
 class ListNode {
   val: number;
   next: ListNode | null;
@@ -14,7 +16,8 @@ class ListNode {
 class ArrToListNode {
   public listNode: ListNode | null = null;
   public count: number = 0;
-  constructor(arr: Array<number>) {
+
+  constructor(arr: Array<t>) {
     const len = arr.length;
     if (!len) {
       return;
@@ -29,6 +32,29 @@ class ArrToListNode {
     }
   }
 
+  protected checkIndex (index: number) {
+    if (index < 0 || index > this.count) {
+      throw new Error(`index不是一个有效值, index应在0~${this.count}之间`);
+    }
+    return true;
+  }
+
+  // 通过索引寻找节点
+  findNodebyIndex (index: number, listNode: ListNode | null = this.listNode): ListNode | null {
+    //const checkIndex = this.checkIndex(index);
+    // if (!checkIndex) {
+    //   return null
+    // }
+    let current = 0;
+    let header = listNode;
+    while (current !== index) {
+      header = header?.next || null;
+      current++;
+    }
+    return header || null;
+  }
+
+  // 遍历节点
   forEach(fn: (listNode: ListNode, index: number) => void) {
     let header = this.listNode;
     let index = 0;
@@ -39,11 +65,53 @@ class ArrToListNode {
     }
   }
 
-  toArr(): Array<number> {
-    let arr: Array<number> = [];
+  // 转换为数组
+  toArr(): Array<t> {
+    let arr: Array<t> = [];
     this.forEach((item) => arr.push(item.val));
     return arr;
   }
+
+  // 往指定位置插入节点
+  inset(val: number | ListNode | Array<t>, index = this.count) {
+    let dempList: ListNode = new ListNode(
+      -1,
+      this.listNode
+    )
+    let prevNode = this.findNodebyIndex(index, dempList)
+
+    if (!prevNode) {
+      throw new Error(`index值无效`)
+    }
+
+    if (typeof val === 'number') {
+      prevNode.next = new ListNode(val, prevNode.next || null)
+      this.count++;
+    } else {
+      const subListNode: ListNode | null =
+        val instanceof Array ?
+          new ArrToListNode(val).listNode :
+          val;
+      let subLastNode = subListNode;
+      let len = 0;
+      while (subLastNode !== null && subLastNode.next !== null) {
+        subLastNode = subLastNode.next;
+        len++;
+      }
+      len++;
+      const nextNode = prevNode.next;
+      prevNode.next = subListNode;
+      if (subLastNode) {
+        subLastNode.next = nextNode
+      }
+      
+      this.count += len;
+    }
+
+    this.listNode = dempList.next;
+
+    return this;
+  }
 }
 
-export { ArrToListNode };
+export { ListNode, ArrToListNode };
