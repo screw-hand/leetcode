@@ -8,7 +8,7 @@ test(`ArrToListNode [${arr1}]`, () => {
   });
 });
 
-// TODO
+// TODO jest throw Error
 // test(`ArrTOListNode [${arr1}] findNodebyIndex method`, () => {
 //   const listNode = new ArrToListNode(arr1);
 //   const index0 = 0;
