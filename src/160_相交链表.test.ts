@@ -8,8 +8,8 @@ const b: ArrToListNode | ListNode = new ArrToListNode([5, 6, 1])
 const c = new ArrToListNode([8, 4, 5]).listNode as ListNode
 
 const params1 = [
-  a.insert(c).listNode,
-  b.insert(c).listNode
+  a.conect(c).listNode,
+  b.conect(c).listNode
 ]
 
 const result1 = c

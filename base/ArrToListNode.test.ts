@@ -8,37 +8,6 @@ test(`ArrToListNode [${arr1}]`, () => {
   });
 });
 
-// TODO jest throw Error
-// test(`ArrTOListNode [${arr1}] findNodebyIndex method`, () => {
-//   const listNode = new ArrToListNode(arr1);
-//   const index0 = 0;
-//   const indexMax = arr1.length - 1;
-//   const indexOverMax = arr1.length + 1;
-
-//   // expect(
-//   //   listNode.findNodebyIndex(-1)
-//   // ).toEqual(null);
-
-//   expect(
-//     listNode.findNodebyIndex(index0)
-//   ).toEqual(
-//     new ListNode(
-//       arr1[index0],
-//       new ArrToListNode(arr1.slice(index0 + 1)).listNode
-//     )
-//   )
-
-//   expect(
-//     listNode.findNodebyIndex(indexMax)
-//   ).toEqual(
-//     new ListNode(arr1[indexMax])
-//   )
-
-//   // expect( 
-//   //   listNode.findNodebyIndex(indexOverMax)
-//   // ).toThrow(new Error())
-// })
-
 test(`ArrTOListNode [${arr1}] inset method`, () => {
   const subArr = [7, 8, 9]
   const listNode = new ArrToListNode(arr1);
@@ -60,7 +29,7 @@ test(`ArrTOListNode [${arr1}] inset method`, () => {
   )
 
   arr = [...arr, ...subArr]
-  listNode.insert(subArr)
+  listNode.conect(subArr)
   expect(
     listNode.toArr()
   ).toEqual(
