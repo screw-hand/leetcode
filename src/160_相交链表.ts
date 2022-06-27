@@ -43,10 +43,6 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
     } else {
       p2 = p2?.next || null;
     }
-    console.log({
-      p1: p1?.val,
-      p2: p2?.val,
-    })
   }
   return p1;
 };

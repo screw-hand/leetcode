@@ -1,31 +1,15 @@
 import { ArrToListNode } from "../base/ArrToListNode";
 import getIntersectionNode from "./160_相交链表";
+import { ListNode } from "./23_合并k个升序链表";
 
 
-const a = new ArrToListNode([4, 1]).listNode
-const b = new ArrToListNode([5, 6, 1]).listNode
-const c = new ArrToListNode([8, 4, 5]).listNode
-
-let aLastNode = a
-while (aLastNode && aLastNode.next) {
-  aLastNode = aLastNode.next
-}
-if (aLastNode) {
-  aLastNode.next = c
-}
-
-let bLastNode = b
-while (bLastNode && bLastNode.next) {
-  bLastNode = bLastNode.next
-}
-if (bLastNode) {
-  bLastNode.next = c
-}
-
+const a: ArrToListNode| ListNode = new ArrToListNode([4, 1])
+const b: ArrToListNode | ListNode = new ArrToListNode([5, 6, 1])
+const c = new ArrToListNode([8, 4, 5]).listNode as ListNode
 
 const params1 = [
-  a,
-  b
+  a.insert(c).listNode,
+  b.insert(c).listNode
 ]
 
 const result1 = c
